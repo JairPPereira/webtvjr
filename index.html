@@ -1,72 +1,34 @@
-<!doctype html>
-<html>
-	<html lang="pt-br"></html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Site Teste</title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="theme-color" content="#00FFFF"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="#00FFFF"/>
-    <meta name="msapplication-navbutton-color" content="#00FFFF"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  
-    <script>
-      window.onload = function() {
-          if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-              document.getElementById("botcel").style.display = "table";
-          }
-      }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noirfy Music</title>
 
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.0.5/video-js.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/6.6.5/videojs-contrib-ads.min.css">
-	<link href="src/videojs-vast-vpaid-waterfall.css" rel="stylesheet">
-  
+    <link rel="stylesheet" href="./assets/icons/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
 </head>
 <body>
-	<video id="videojs-vast-vpaid-waterfall-player" class="video-js vjs-default-skin" autoplay controls width="1280" height="720">
-	<source src="http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f120e94a5714d00074576a1/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=977e45a0-629b-11eb-86b1-3facc9da388a&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=52960630-50b9-4a4d-b84b-6ed25b88774b&userId=&serverSideAds=true" type="application/x-mpegURL">
-	</video>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.0.5/video.min.js"></script>
-	<script src="https://unpkg.com/vast-client@2.0.2/dist/vast-client.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-	<script src="https://unpkg.com/vpaid-html5-client@0.1.14/bin/VPAIDHTML5Client.js"></script>
-	<script src="https://unpkg.com/vpaid-flash-client@0.1.9/bin/VPAIDFLASHClient.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/6.6.5/videojs-contrib-ads.js"></script>
-	<script src="src/videojs-vast-vpaid-waterfall.js"></script>
-	<script>
-	var player = window.player = videojs("videojs-vast-vpaid-waterfall-player");
-	
-	player.play();
-	
-	player.vastWaterfall({
-		preroll:
-		[
-			{
-				ads: ["http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f120e94a5714d00074576a1/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=977e45a0-629b-11eb-86b1-3facc9da388a&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=52960630-50b9-4a4d-b84b-6ed25b88774b&userId=&serverSideAds=true"]
-			}
-		],
-		midroll:
-		[
-			{
-				time: 223,
-				ads: ["http://search.spotxchange.com/vast/2.00/79391?VPAID=1&content_page_url=test.com&cb=3202405928168446&player_width=300&player_height=250","https://cdn.rawgit.com/InteractiveAdvertisingBureau/VAST_Samples/63c9745d9267fe9da64ceaa180bf86be523ef3c3/VAST%201-2.0%20Samples/Inline_LinearRegular_VAST2.0.xml"]
-			},
-			{
-				time: 223,
-				ads: ["https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator="]
-			}
-		],
-		postroll:
-		[
-			{
-				ads: ["https://cdn.rawgit.com/InteractiveAdvertisingBureau/VAST_Samples/63c9745d9267fe9da64ceaa180bf86be523ef3c3/VAST%201-2.0%20Samples/Inline_LinearVAST2vpaid.xml"]
-			}
-		],
-		flashWrapperPath: "https://unpkg.com/vpaid-flash-client@0.1.9/bin/VPAIDFlash.swf",
-		debug: true
-	});
-	</script>
+    <div class="app-wrapper">
+        <div class="player">          
+          <!-- transições e ações internas do player-->
+            <audio id="music-player"></audio>
+            <div id="song-image" class="song-img" style="background-image: url('./assets/images/m2.png');"></div>
+            <div class="song-details">
+                <h2 id="song-title">Lorem ipsum dolor</h2>
+                <h3 id="song-artist">By MixKit</h3>
+            </div>
+            <div class="player-controls">
+                <button id="prev-btn" class="skip-btn"><i class="fas fa-backward fa-lg"></i></button>
+                <button id="play-btn" class="play"><i id="play-icon" class="fas fa-play fa-2x"></i></button>
+                <button id="next-btn" class="skip-btn"><i class="fas fa-forward fa-lg"></i></button>
+            </div>
+            <div class="next-up">
+                <p>A seguir: <span id="song-next-up">Lorem ipsum dolor</span></p>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/main.js"></script>
 </body>
 </html>
