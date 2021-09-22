@@ -1,1 +1,0 @@
-# Plyr.io-HTML-Video-Player

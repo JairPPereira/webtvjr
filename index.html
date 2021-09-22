@@ -1,39 +1,64 @@
-<!DOCTYPE html>
-<html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - Music player</title>
-  <link rel="stylesheet" href="./style1.css">
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<script src="https://kit.fontawesome.com/7c33dff1d8.js" crossorigin="anonymous"></script>
-<div id="overlay"></div>
-<div class="container">
-  <div class="player" id="player" autoplayer="true">
-    <div id="music-info">
-      <div class="title"></div>
-      <div class="author"></div>
-      <div class="album"></div>
-      <div class="bg"></div>
-    </div>
-    <div class="timestamp">
-      <div id="bar"></div>
-      <div id="current-time">
-      </div>
-    </div>
-    <div class="buttons">
+        <title>R&aacute;dio Player</title>
+ <link rel='icon' href='favicon.ico' type='image/x-icon'/ >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    
-      <div class="button button-large" id="play"><i class="fas fa-play"></i></div>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dist/style/font-awsome/css/all.css">
+  <link rel="stylesheet" href="dist/style/main.min.css">
+  <script src="dist/index.min.js"></script>
+  <link rel="stylesheet" href="main.css">
+      
+</head>
 
-      <div class="button button-small" id="mute"><i class="fas fa-volume-up"></i></div>
-    </div>
-  </div>
+
+
+<div id="live-preview">
+<div id="player"></div>
 </div>
-<!-- partial -->
-  <script  src="./script1.js"></script>
 
-</body>
-</html>
+
+<script>
+  var player = new AudioPlayer({
+      divId: "player",
+      layout : "phone",
+     audios: [
+      {
+        title: "R&aacute;dio Zeno",
+        image: 'assets/1.jpg',
+		artist: "R&aacute;dio Record",
+        album: 'Online Radio',
+        source: 'http://stream.zeno.fm/87t0h7c51zquv.aac'
+      },
+      {
+        title: "Studio Bala",
+        artist: "R&aacute;dio Record",
+        image: 'assets/bala.jpg',
+        album: 'M&uacute;sicas 24 horas sem parar',
+        source:'http://95.154.228.120:8707/;'
+      },
+      {
+        title: "Russian Mix",
+        artist: "Unknown",
+        image: 'assets/3.jpg',
+        album: 'M&uacute;sicas 24 horas sem parar',
+        source:'http://95.154.228.120:8707/;'
+      },
+      {
+        title: "Kiss FM",
+        artist: "Unknown",
+        image: 'assets/4.jpg',
+        album: 'Online Radio',
+        source:'http://online.kissfm.ua/KissFM_Live'
+      },
+	   {
+        title: "Roses Imanbek remix",
+        artist: "Saint Jhn",
+        image: 'assets/5.jpg',
+        album: 'Bonus',
+        source:'assets/saint.mp3'
+      }
+    ],
+    });
+  </script>
