@@ -24,7 +24,7 @@ body {
     -webkit-transition: all linear 0.2s;
  }
  .top-bar .player-controls span:hover {
-    color: #EEE;
+    color: white;
  }
  .top-bar .player-display {
     float: left;
