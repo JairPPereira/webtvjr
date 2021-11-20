@@ -352,6 +352,7 @@ $(".nextvid").click(function(){
 $(".closeme , .bigplay").click(function(){
         $("this,.ads,.bigplay").fadeOut(200);
         vid[0].play();
+       
         $('.btnPlay').addClass('paused');
     });
 //end
