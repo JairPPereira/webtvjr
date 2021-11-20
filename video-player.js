@@ -8,6 +8,9 @@ var player = videojs('videoPlayer', {
     plugins: {
         hotkeys: {
 
+            enableModifiersForNumbers: false,
+            seekStep: 30,
+
         }
     }
    
