@@ -1,4 +1,4 @@
-import videojs from 'video.js';
+import videojs from 'video-player.js';
 import playItem from './play-item';
 import * as autoadvance from './auto-advance';
 

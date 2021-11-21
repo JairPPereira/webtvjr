@@ -50,7 +50,7 @@ player.playlist([
             { src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4', type: 'video/mp4' }
         ],
         poster: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg'
-    },
+    }
 ]);
 
 player.playlist.autoadvance(0);
