@@ -1,7 +1,7 @@
 var player = videojs('videoPlayer', {
     autoplay: 'muted',
     controls: true,
-    poster:'https://picsum.photos/50/50',
+    poster:'https://picsum.photos/800/50',
     loop: false,
    
     playbackRates:[0.25, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4],
@@ -16,10 +16,6 @@ var player = videojs('videoPlayer', {
    
 });
 
-player.zoomrotate({
-    rotate: 180,
-    zoom: 3,
-});
 
 player.watermark({
  file: 'https://picsum.photos/50/50',
@@ -58,3 +54,5 @@ player.playlist([
 ]);
 
 player.playlist.autoadvance(0);
+
+player.rotate(player);
