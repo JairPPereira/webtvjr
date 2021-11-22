@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +8,170 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     
       <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+      <link rel="stylesheet" href="./style2.css">
+
+      <script type="text/javascript">
+        function init() {        // Master function, encapsulates all functions
+            var video = document.getElementById("Player");                                               
+            if (video.canPlayType) {   // tests that we have HTML5 video support
+                // if successful, display buttons and set up events
+                document.getElementById("buttonbar").style.display = "block";                
+                document.getElementById("inputField").style.display = "block";
+
+                // helper functions
+                //  play video
+                function vidplay(evt) {
+                    if (video.src == "") {  // inital source load
+                        getVideo();
+                    }
+                    button = evt.target; //  get the button id to swap the text based on the state                                    
+                    if (video.paused) {   // play the file, and display pause symbol
+                        video.play();
+                        button.textContent = "||";
+                    } else {              // pause the file, and display play symbol  
+                        video.pause();
+                        button.textContent = ">";
+                    }
+                }
+                //  load video file from input field
+                function getVideo() {
+                    var fileURL = document.getElementById("videoFile").value;  // get input field                    
+                    if (fileURL != "") {
+                        video.src = fileURL;
+                        video.load();  // if HTML source element is used
+                        document.getElementById("play").click();  // start play
+                    } else {
+                        errMessage("Enter a valid video URL");  // fail silently
+                    }
+                }
+
+
+
+                //  button helper functions 
+                //  skip forward, backward, or restart
+                function setTime(tValue) {
+                //  if no video is loaded, this throws an exception 
+                    try {
+                        if (tValue == 0) {
+                            video.currentTime = tValue;
+                        }
+                        else {
+                            video.currentTime += tValue;
+                        }
+                        
+                     } catch (err) {
+                         // errMessage(err) // show exception
+                     errMessage("Video content might not be loaded");
+                       }
+             }
+                //  display an error message 
+                function errMessage(msg) {
+                // displays an error message for 5 seconds then clears it
+                    document.getElementById("errorMsg").textContent = msg;
+                    setTimeout("document.getElementById('errorMsg').textContent=''", 5000);
+                }
+                // change volume based on incoming value 
+                function setVol(value) {
+                    var vol = video.volume;
+                    vol += value;
+                    //  test for range 0 - 1 to avoid exceptions
+                    if (vol >= 0 && vol <= 1) {
+                        // if valid value, use it
+                        video.volume = vol;
+                    } else {
+                        // otherwise substitute a 0 or 1
+                        video.volume = (vol < 0) ? 0 : 1;                        
+                    }
+                }
+                //  button events               
+                //  Play
+                document.getElementById("play").addEventListener("click", vidplay, false);
+                //  Restart
+                document.getElementById("restart").addEventListener("click", function () {
+                    setTime(0);
+                }, false);
+                //  Skip backward 1000 seconds
+                document.getElementById("rew").addEventListener("click", function () {
+                    setTime(-1000);
+                }, false);
+                //  Skip forward 1000 seconds
+                document.getElementById("fwd").addEventListener("click", function () {
+                    setTime(1000);
+                }, false);
+                //  set src == latest video file URL
+                document.getElementById("loadVideo").addEventListener("click", getVideo, false);
+
+                // fail with message 
+                video.addEventListener("error", function (err) {
+                    errMessage(err);
+                }, true);
+                // volume buttons
+                document.getElementById("volDn").addEventListener("click", function () {
+                    setVol(-.1); // down by 10%
+                }, false);
+                document.getElementById("volUp").addEventListener("click", function () {
+                    setVol(.1);  // up by 10%
+                }, false);
+
+                // playback speed buttons
+                document.getElementById("slower").addEventListener("click", function () {
+                    video.playbackRate -= .25;
+                }, false);
+                document.getElementById("faster").addEventListener("click", function () {
+                    video.playbackRate += .25;
+                }, false);
+                document.getElementById("normal").addEventListener("click", function () {
+                    video.playbackRate = 1;
+                }, false);
+                document.getElementById("mute").addEventListener("click", function (evt) {
+                    if (video.muted) {
+                        video.muted = false;
+                        evt.target.innerHTML = "<img alt='volume on button' src='vol2.png' />"
+                    } else {
+                        video.muted = true;
+                        evt.target.innerHTML = "<img alt='volume off button' src='mute2.png' />"
+                    }
+                }, false);
+            } // end of runtime
+        }// end of master  
+            
+    </script>
+    
+    
+    </head>
     
     
    
 </head>
-<body>
+
+   <body onload="init();">
 
 
             <video autoplay controls id="Player" src="https://drive.google.com/uc?export=&id=1-FQN9D9Lx8jQZ4BVqGOfuJSklGUv9PHi" onclick="this.paused ? this.play() : this.pause();" width="100%">Your browser does not support the video tag.</video>
+
+            <div id="buttonbar" style="display: none;")>
+                <button id="restart" title="Restart button">[]</button> 
+               
+                <button id="rew" title="Rewind button" >&lt;&lt;</button>
+                <button id="play" title="Play button">&gt;</button>
+                <button id="fwd" title="Forward button" >Próxima musica</button>
+              
+                  
+                <br />
+               
+                
+              
+                        
+            </div>   
+            <br/>  
+            <div id= "inputField" style="display:none;" >
+
+                    
+            
+
+       
+            
 
             <script>
             var nextsrc = ["https://drive.google.com/uc?export=&id=1-FQN9D9Lx8jQZ4BVqGOfuJSklGUv9PHi","https://drive.google.com/uc?export=&id=1047hOqoyQHbHK1pTRgKBvjtSvHZMbCEB","https://drive.google.com/uc?export=&id=1-bE8H4ibeDaE4Fq1jh6MyFvNMjSWaiT7","https://drive.google.com/uc?export=&id=1-UtBmifRsplySSVCEfZnLcZtieHHUEgK","https://drive.google.com/uc?export=&id=108VBMuTUArigZihwHkrXohl3O81zBYh8","https://drive.google.com/uc?export=&id=1-9hGOzmuSE66wXFaXhrlTxnHDH47ahQH","https://drive.google.com/uc?export=&id=10PVvxB1JyjNkA0CT76MM68DQIB-Blbu-","https://drive.google.com/uc?export=&id=10FD1PuAGO_MMs8JqBnv5i5ySJDcTKv8a","https://drive.google.com/uc?export=&id=10G6ks4pn9FUYh4O1ceDTSP2_x2mPMb7D","https://drive.google.com/uc?export=&id=108pD6_3z77ecg0ckpdLK2WiPzVXPu3a2","https://drive.google.com/uc?export=&id=10GCp5do7Jziu8KBu6FhUL0cPykJQecmJ","https://drive.google.com/uc?export=&id=10YgM8mIMKCe2PlcmyQfTrnnpahMv5MFA","https://drive.google.com/uc?export=&id=1CIYwHLciWD6tUWt6O19Pc9zdydWng86D","https://drive.google.com/uc?export=&id=1-8ielGxidy6hUfwgedmd8dfPvz-3uUJ9","https://drive.google.com/uc?export=&id=10GCp5do7Jziu8KBu6FhUL0cPykJQecmJ"];
@@ -24,10 +180,15 @@
                 if(++Elm < nextsrc.length){         
                      Player.src = nextsrc[Elm]; Player.play();
                 } 
-            }
+            };
+
+     
+
+            
             </script>
 
 <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+
 
 
     

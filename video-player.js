@@ -1,4 +1,4 @@
-var player = videojs('videoPlayer', {
+var player = videojs('vid', {
     autoplay: 'muted',
     controls: true,
     poster:'https://picsum.photos/800/50',
@@ -36,7 +36,7 @@ player.thumbnails({
 
 
 });
-player.playlist();
+
 player.playlist([
     {
         sources: [
