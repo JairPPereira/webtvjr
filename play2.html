@@ -5,64 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://videojs-playlist-ui.vertical.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    
+    
+   
 </head>
 <body>
 
-    <video autoplay id="player" class="video-js vjs-fluid" controls>
-        <source src="somevideo.mp4" type="video/mp4">
-    </video>
 
-    <div class="playlist-container  preview-player-dimensions vjs-fluid">
-        <ol class="vjs-playlist"></ol>
-    </div>
-    <script>
-        var player = videojs('player');
-    
-        player.playlistUi();
-    
-        player.playlist([{
-            sources: [{
-                src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-                type: 'video/mp4'
-            }],
-            poster: 'http://media.w3.org/2010/05/sintel/poster.png'
-            }, {
-            sources: [{
-                src: 'http://media.w3.org/2010/05/bunny/trailer.mp4',
-                type: 'video/mp4'
-            }],
-            poster: 'http://media.w3.org/2010/05/bunny/poster.png'
-            }, {
-            sources: [{
-                src: 'http://vjs.zencdn.net/v/oceans.mp4',
-                type: 'video/mp4'
-            }],
-            poster: 'http://www.videojs.com/img/poster.jpg'
-            }, {
-            sources: [{
-                src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
-                type: 'video/mp4'
-            }],
-            poster: 'http://media.w3.org/2010/05/bunny/poster.png'
-            }, {
-            sources: [{
-                src: 'http://media.w3.org/2010/05/video/movie_300.mp4',
-                type: 'video/mp4'
-            }],
-            poster: 'http://media.w3.org/2010/05/video/poster.png'
-        }]);
-    
-           // Play through the playlist automatically. 
-           player.playlist.autoadvance(0);
-    
-    </script>
+            <video autoplay controls id="Player" src="http://www.w3schools.com/html/movie.mp4" onclick="this.paused ? this.play() : this.pause();" width="100%">Your browser does not support the video tag.</video>
 
-    <script src="https://vjs.zencdn.net/7.17.0/videojs.min.js"></script>
-   
-<script src="videojs-playlist.js"></script>
-<script src="https://videojs-playlist-ui.min.js"></script>
+            <script>
+            var nextsrc = ["http://www.w3schools.com/html/movie.mp4","http://www.w3schools.com/html/mov_bbb.mp4"];
+            var Elm = 0; var Player = document.getElementById('Player');
+            Player.onended = function(){
+                if(++Elm < nextsrc.length){         
+                     Player.src = nextsrc[Elm]; Player.play();
+                } 
+            }
+            </script>
+
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
     
 </body>
 </html>

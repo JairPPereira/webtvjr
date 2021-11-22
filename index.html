@@ -1,136 +1,84 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>videos clips </title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="theme-color" content="#00FFFF"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="#00FFFF"/>
-<meta name="msapplication-navbutton-color" content="#00FFFF"/>
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<script>
-	window.onload = function() {
-		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-			document.getElementById("botcel").style.display = "table";
-		}
-	}
-</script>
-
-<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
-<script src="https://unpkg.com/video.js/dist/video.js"></script>
-<script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
-<style>
-  div.a{
-   text-align: center; background-color: blanchedalmond;
-
-   } 
-  body {background-color:#080808}
-  </style>
-  <link href="https://cdn.jsdelivr.net/npm/videojs-mobile-ui/dist/videojs-mobile-ui.css" rel="stylesheet" />
-  <script src = " https://cdn.jsdelivr.net/npm/videojs-mobile-ui/dist/videojs-mobile-ui.min.js" > </script>
-   <link rel="stylesheet" href="https://path/to/videojs-mobile-ui.css">
-  <link rel="stylesheet" href="./style2.css">
-
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./style.css">
+	
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<!--[if lt IE 9]>
-  <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
-<div class="container">
-<div class="vidcontainer">
-<video id="myvid" >
-
-  Your browser does not support the video tag.
-  
-</video>
-
-        <div class="topControl">
-			<div class="progress">
-				<span class="bufferBar"></span>
-				<span class="timeBar"></span>
+	<div class="vidcontainer">
+	<video id="myvid" >
+	
+	  Your browser does not support the video tag.
+	  
+	</video>
+	
+			<div class="topControl">
+				<div class="progress">
+					<span class="bufferBar"></span>
+					<span class="timeBar"></span>
+				</div>
+				<div class="time">
+					<span class="current"></span> / 
+					<span class="duration"></span> 
+				</div>
 			</div>
-			<div class="time">
-				<span class="current"></span> / 
-				<span class="duration"></span> 
-			</div>
-        </div>
-
-<div class="controllers">
-  	<button class="btnPlay" title="Play/Pause video"></button>
-  	<button class="prevvid disabled" title="Previous video"><i class="fa fa-step-forward fa-rotate-180"></i></button>
-    <button class="nextvid" title="Next video"><i class="fa fa-step-forward"></i></button>
-    <button class="sound sound2 btn" title="Mute/Unmute sound"></button>
-    <div class="volume" title="Set volume">
-			<span class="volumeBar"></span>
+	
+	<div class="controllers">
+		  <button class="btnPlay" title="Play/Pause video"></button>
+		  <button class="prevvid disabled" title="Previous video"><i class="fa fa-step-forward fa-rotate-180"></i></button>
+		<button class="nextvid" title="Next video"><i class="fa fa-step-forward"></i></button>
+		<button class="sound sound2 btn" title="Mute/Unmute sound"></button>
+		<div class="volume" title="Set volume">
+				<span class="volumeBar"></span>
+		</div>
+		<button class="btnFS " style="float:right" title="full screen"></button>
+		<button class="btnspeed " style="float:right" title="Video speed"><i class="fa fa-gear"></i></button>
+		<ul class="speedcnt">
+			<li class="spdx50">1.5</li>
+			<li class="spdx25">1.25</li>
+			<li class="spdx1 selected">Normal</li>
+			<li class="spdx050">0.5</li>
+		</ul>
+		<button class="btnLight lighton " style="float:right" title="on/off light"><i class="fa fa-lightbulb-o"></i></button>
 	</div>
-    <button class="btnFS " style="float:right" title="full screen"></button>
-    <button class="btnspeed " style="float:right" title="Video speed"><i class="fa fa-gear"></i></button>
-    <ul class="speedcnt">
-    	<li class="spdx50">1.5</li>
-    	<li class="spdx25">1.25</li>
-    	<li class="spdx1 selected">Normal</li>
-    	<li class="spdx050">0.5</li>
-    </ul>
-	<button class="btnLight lighton " style="float:right" title="on/off light"><i class="fa fa-lightbulb-o"></i></button>
-</div>
-<div class="ads">
-    	<span class="closeme fa fa-close"></span>
-
-</div>
-<div class="bigplay" title="play the video"><i class="fa fa-play-circle-o"></i></div>
-<div class="loading"><i class="fa fa-spinner fa-spin"></i></div>
-    </div>
-
-	<div class="videolist">
-		<nav class="vids">
-<a class="link" href="https://drive.google.com/uc?export=&id=11Pp-wqxQpTldb3OLVwfHIooVY6W3z-lg">Sonho meu - Zeca Pagodinho</a>
-
-			<a class="link" href="https://drive.google.com/uc?export=&id=11UfUHp1wvq8m6GKbLj1cfrvsygG0Rb62">Seu balancê - Zeca Pagodinho</a>
-
-			<a class="link" href="https://drive.google.com/uc?export=&id=11QkcYOrI6t1OoHTFB250VNBOeA8jXyY1">verdade - Zeca Pagodinho</a>
-
-			<a class="link" href="https://drive.google.com/uc?export=&id=11blsnGlLCDSooDBm0shGuzzOsJp-RM8S
-			">Trem das onze - Demônios da garoa</a>
-
-			<a class="link" href="https://drive.google.com/uc?export=&id=11bv8ZlEUfHvYVQNWszUk9MLqUVKB070B">Ah! como eu te amei - Benito di Paula</a>
-
-			<a class="link" href="https://d31ii3fk8fd7mh.cloudfront.net/d02c7cfb0fc5432fb5e4a103c836a2e3/index_3.m3u8">test6</a>
-
-			<a class="link" href="http://download.wavetlan.com/SVV/Media/HTTP/H264/Other_Media/H264_test8_voiceclip_mp4_480x320.mp4">test7</a>
-
-			<a class="link" href="http://download.wavetlan.com/SVV/Media/HTTP/MP4/ConvertedFiles/Media-Convert/Unsupported/dw11222.mp4">test8</a>
-
-			<a class="link" href="http://download.wavetlan.com/SVV/Media/HTTP/MP4/ConvertedFiles/Media-Convert/Unsupported/test7.mp4">tsest9</a>
-                        
-			<a class="link" href="">video 3</a>
-
-			<a class="link" href="">test4</a>
-
-			<a class="link" href="">test5</a>
-
-			<a class="link" href="">test6</a>
-
-			<a class="link" href="">test7</a>
-
-			<a class="link" href="">test8</a>
-
-			<a class="link" href="">tsest9</a>
-		</nav>
+	<div class="ads">
+			<span class="closeme fa fa-close"></span>
+	
 	</div>
-</div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script2.js"></script>
+	<div class="bigplay" title="play the video"><i class="fa fa-play-circle-o"></i></div>
+	<div class="loading"><i class="fa fa-spinner fa-spin"></i></div>
+		</div>
+	
+		<div class="videolist">
+			<nav class="vids">
+	<a class="link" href="https://www.quirksmode.org/html5/videos/big_buck_bunny.mp4">test1</a>
+	
+				<a class="link" href="https://www.quirksmode.org/html5/videos/big_buck_bunny.mp4">test2</a>
+	
+				<a class="link" href="http://www.html5videoplayer.net/videos/toystory.mp4">test3</a>
+	
+				<a class="link" href="http://download.wavetlan.com/SVV/Media/HTTP/H264/Talkinghead_Media/H264_test4_Talkingheadclipped_mp4_480x320.mp4">test4</a>
+	
+				<a class="link" href="http://download.wavetlan.com/SVV/Media/HTTP/H264/Other_Media/H264_test5_voice_mp4_480x360.mp4">test5</a>
+	
+				<a class="link" href="http://download.wavetlan.com/SVV/Media/HTTP/H264/Other_Media/H264_test7_voiceclip_mp4_480x360.mp4">test6</a>
+	
+				<a class="link" href="http://download.wavetlan.com/SVV/Media/HTTP/H264/Other_Media/H264_test8_voiceclip_mp4_480x320.mp4">test7</a>
+	
+				<a class="link" href="http://download.wavetlan.com/SVV/Media/HTTP/MP4/ConvertedFiles/Media-Convert/Unsupported/dw11222.mp4">test8</a>
+	
+				<a class="link" href="http://download.wavetlan.com/SVV/Media/HTTP/MP4/ConvertedFiles/Media-Convert/Unsupported/test7.mp4">tsest9</a>
+			</nav>
+		</div>
+	</div>
 
-<script type="text/javascript" src=".//plugins/js/zoomrotate.js"></script>
-
-
- <script src="https://path/to/video.min.js"></script>
-<script src="https://path/to/videojs-mobile-ui.min.js"></script>
-
+	<script type="text/javascript" src="./script.js"></script>
+	<script type="text/javascript" src="./video-player.js"></script>
 
 </body>
 </html>
-
