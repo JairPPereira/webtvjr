@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://videojs-playlist-ui.vertical.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <video autoplay id="player" class="video-js vjs-fluid" controls>
+        <source src="somevideo.mp4" type="video/mp4">
+    </video>
+
+    <div class="playlist-container  preview-player-dimensions vjs-fluid">
+        <ol class="vjs-playlist"></ol>
+    </div>
+    <script>
+        var player = videojs('player');
+    
+        player.playlistUi();
+    
+        player.playlist([{
+            sources: [{
+                src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+                type: 'video/mp4'
+            }],
+            poster: 'http://media.w3.org/2010/05/sintel/poster.png'
+            }, {
+            sources: [{
+                src: 'http://media.w3.org/2010/05/bunny/trailer.mp4',
+                type: 'video/mp4'
+            }],
+            poster: 'http://media.w3.org/2010/05/bunny/poster.png'
+            }, {
+            sources: [{
+                src: 'http://vjs.zencdn.net/v/oceans.mp4',
+                type: 'video/mp4'
+            }],
+            poster: 'http://www.videojs.com/img/poster.jpg'
+            }, {
+            sources: [{
+                src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+                type: 'video/mp4'
+            }],
+            poster: 'http://media.w3.org/2010/05/bunny/poster.png'
+            }, {
+            sources: [{
+                src: 'http://media.w3.org/2010/05/video/movie_300.mp4',
+                type: 'video/mp4'
+            }],
+            poster: 'http://media.w3.org/2010/05/video/poster.png'
+        }]);
+    
+           // Play through the playlist automatically. 
+           player.playlist.autoadvance(0);
+    
+    </script>
+
+    <script src="https://vjs.zencdn.net/7.17.0/videojs.min.js"></script>
+   
+<script src="videojs-playlist.js"></script>
+<script src="https://videojs-playlist-ui.min.js"></script>
+    
+</body>
+</html>

@@ -36,7 +36,7 @@ player.thumbnails({
 
 
 });
-
+player.playlist();
 player.playlist([
     {
         sources: [
@@ -52,6 +52,8 @@ player.playlist([
         poster: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg'
     }
 ]);
+
+// Play through the playlist automatically.
 
 player.playlist.autoadvance(0);
 
